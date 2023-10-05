@@ -3,4 +3,5 @@
 ## Getting Started
 
 Starting Project for C24 in branch Bryan-JWT
-**Test the sync with github**
+
+Test the sync with github
