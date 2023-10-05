@@ -1,5 +1,6 @@
 # C24-SellElegant
 
-Comment #1
+## Getting Started
 
-Comment #2
+Starting Project for C24 in branch Bryan-JWT
+**Test the sync with github**
