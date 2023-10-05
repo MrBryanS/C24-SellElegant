@@ -1,5 +1,4 @@
 # C24-SellElegant
 
-Comment #1
+Starting Project for C24 in branch Bryan-JWT
 
-Comment #2
