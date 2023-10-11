@@ -18,7 +18,10 @@ const typeDefs = `#graphql
     user: [User]
     product: [Product]
   }
-`;
 
+  type Mutation {
+    createUser(email: String!, password: String!): User
+  }
+`;
 
 module.exports = typeDefs;
