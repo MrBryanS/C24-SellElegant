@@ -13,8 +13,10 @@ const typeDefs = `#graphql
   }
 
   # type Auth
-
-  # defined queries, mutations --cannot think of any mutations? -joelg
+  type Auth {
+    token: ID!
+    user: User
+  }
   
   type Query {
     user: [User]
@@ -22,7 +24,7 @@ const typeDefs = `#graphql
   }
 
   type Mutation {
-    createUser(email: String!, password: String!): User
+    createUser(email: String!, password: String!): Auth
   }
 `;
 
