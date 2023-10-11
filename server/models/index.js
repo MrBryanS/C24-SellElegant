@@ -1,7 +1,6 @@
 //bryan im note sure what models/routes/seeds you want -Joel;
 
-const Products = require('./Products');
-const Users = require('./Users');
+const Product = require("./Product");
+const User = require("./User");
 
-
-module.exports = { Products, Users };
+module.exports = { Product, User };
