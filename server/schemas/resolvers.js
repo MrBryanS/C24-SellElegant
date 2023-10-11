@@ -1,4 +1,5 @@
 const { User, Product } = require("../models");
+const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -10,9 +11,10 @@ const resolvers = {
     },
   },
   Mutation: {
-    createUser: async (parents, args) => {
-      const user = await User.create(args);
-      return user;
+    createUser: async (parents, {email, password}) => {
+      const user = await User.create({email, password});
+      const token = signToken(user);
+      return { token, user };
     },
   },
 };
