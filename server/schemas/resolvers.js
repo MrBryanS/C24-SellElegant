@@ -6,7 +6,7 @@ const resolvers = {
       return User.find({});
     },
     product: async () => {
-      return Product.find();
+      return Product.find({});
     },
   },
   Mutation: {

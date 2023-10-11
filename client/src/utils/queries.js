@@ -10,9 +10,9 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_PRODUCTS = gql`
-  query products {
-    products {
+export const QUERY_PRODUCT = gql`
+  query product {
+    product {
       _id
       product_name
       price

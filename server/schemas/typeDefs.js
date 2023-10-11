@@ -12,6 +12,8 @@ const typeDefs = `#graphql
     stock: Int!
   }
 
+  # type Auth
+
   # defined queries, mutations --cannot think of any mutations? -joelg
   
   type Query {
