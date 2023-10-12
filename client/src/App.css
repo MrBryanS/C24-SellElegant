@@ -1,0 +1,15 @@
+/* app.css */
+
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Define global styles */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Add other global styles as needed */
