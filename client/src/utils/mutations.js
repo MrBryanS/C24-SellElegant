@@ -13,3 +13,16 @@ export const CREATE_USER = gql`
   }
   }
 `;
+
+export const LOGIN_USER = gql`
+  mutation login($email: Sting!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      user {
+        _id
+        email
+        password
+      }
+    }
+  }
+`

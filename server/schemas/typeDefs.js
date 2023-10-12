@@ -19,12 +19,15 @@ const typeDefs = `#graphql
   }
   
   type Query {
-    user: [User]
-    product: [Product]
+    users: [User]
+    user(email: String!): User
+    products: [Product]
+    product(productId: ID!): Product
   }
 
   type Mutation {
     createUser(email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
   }
 `;
 
