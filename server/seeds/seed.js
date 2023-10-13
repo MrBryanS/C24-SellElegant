@@ -1,13 +1,15 @@
+// C:\Users\bryan\bootcamp\challenges\C24-SellElegant\server\seeds\seed.js
 const db = require("../config/connection");
-const { Product, User } = require("../models");
+// const { Product, User, Order } = require("../models");
+const { User } = require("../models");
+const cleanDB = require("./cleanDB");
 
-//which seed do we want?
-//const { //unsure? //} = require('../models');
+
 
 db.once("open", async () => {
   await User.deleteMany({});
   await Product.deleteMany({});
-
+1
   await User.collection.insertOne({
     email: "test@gmail.com",
     password: "123",
@@ -26,13 +28,3 @@ db.once("open", async () => {
   process.exit(0);
 });
 
-//THIS IS boiler plate, we need to change it when we find out what seeds we use
-
-//db.once('open', async () => {
-// await cleanDB('Tech', 'teches');
-
-//await Tech.insertMany(techData);
-
-//console.log('Technologies seeded!');
-//  process.exit(0);
-//});
