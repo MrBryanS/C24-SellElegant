@@ -13,7 +13,7 @@ const typeDefs = `#graphql
 
   type Product {
     _id: ID!
-    product_name: String!
+    productName: String!
     productDescription: String!
     price: Float    
   }
