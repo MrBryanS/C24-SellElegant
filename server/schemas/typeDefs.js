@@ -22,7 +22,7 @@ const typeDefs = `#graphql
   type Order {
     _id: ID!
     orderDate: String!
-    orderShipped: Bollean!  #true is shipped, false is pending
+    orderShipped: Boolean!  #true is shipped, false is pending
     products: [ Product ] #like authors from c21
 }
 
@@ -34,21 +34,23 @@ const typeDefs = `#graphql
   
   type Query {
     users: [User]
-    user(email: String!): User
+    user (email: String!): User
     products: [Product]
-    product(productId: ID!): Product
+    product (productId: ID!): Product
+    orders: [Order]
+    order (orderId: ID!): Order
   }
 
   type Mutation {
     createUser(username: String, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addOrder(orderDate: String!, orderShipped: Boolean!): Order
+    
+    addOrder(email: String!, orderDate: String!, orderShipped: Boolean!): Order
+    
     removeOrder(orderId: ID!): Order
     addProduct(  #addComment is like adding productd to an order
       productdId: ID!
-      productName: String!
-      productDescription: String!
-      price: Float!
+      orderdId: ID!
       ): Order
     removeProduct(productId: ID!): Order
 

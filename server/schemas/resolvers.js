@@ -41,11 +41,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addOrder: async (parent, { orderDate, orderShipped }) => {
+    addOrder: async (parent, { email, orderDate, orderShipped }) => {
       const order = await Order.create({ orderDate, orderShipped });
       await User.findOneAndUpdate(
-        { _id: userId },
-        { $addToSet: { orders: order._id } }
+        { email: email },
+        { $addToSet: { savedOrders: order._id } }
       );
       return order;
     },
