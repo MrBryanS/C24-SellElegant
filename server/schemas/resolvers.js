@@ -1,4 +1,4 @@
-const { User, Product } = require("../models");
+const { User, Product, Order } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
@@ -15,10 +15,17 @@ const resolvers = {
     product: async () => {
       return Product.findOne({ _id });
     },
+    orders: async () => {
+      return Order.find({});
+    },
+    order: async () => {
+      return Order.findOne({ _id });
+    },
   },
+
   Mutation: {
-    createUser: async (parents, { email, password }) => {
-      const user = await User.create({ email, password });
+    createUser: async (parents, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
     },
@@ -33,6 +40,34 @@ const resolvers = {
       }
       const token = signToken(user);
       return { token, user };
+    },
+    addOrder: async (parent, { email, orderDate, orderShipped }) => {
+      const order = await Order.create({ orderDate, orderShipped });
+      await User.findOneAndUpdate(
+        { email: email },
+        { $addToSet: { savedOrders: order._id } }
+      );
+      return order;
+    },
+
+    removeOrder: async (parent, { orderId }) => {
+      return Order.findOneAndDelete({ _id: orderId });
+    },
+
+    addProduct: async (parent, { orderId, productId }) => {
+      return Order.findOneAndUpdate(
+        { _id: orderId },
+        { $addToSet: { products: { productId } } },
+        { new: true, runValidators: true }
+      );
+    },
+
+    removeProduct: async (parent, { productId, orderId }) => {
+      return Order.findOneAndUpdate(
+        { _id: orderId },
+        { $pull: { products: { _id: productId } } },
+        { new: true }
+      );
     },
   },
 };
