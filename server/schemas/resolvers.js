@@ -20,10 +20,9 @@ const resolvers = {
     },
     order: async () => {
       return Order.findOne({ _id });
-    }
-
+    },
   },
- 
+
   Mutation: {
     createUser: async (parents, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -49,10 +48,27 @@ const resolvers = {
         { $addToSet: { orders: order._id } }
       );
       return order;
-    }
+    },
 
-    
-      
+    removeOrder: async (parent, { orderId }) => {
+      return Order.findOneAndDelete({ _id: orderId });
+    },
+
+    addProduct: async (parent, { orderId, productId }) => {
+      return Order.findOneAndUpdate(
+        { _id: orderId },
+        { $addToSet: { products: { productId } } },
+        { new: true, runValidators: true }
+      );
+    },
+
+    removeProduct: async (parent, { productId, orderId }) => {
+      return Order.findOneAndUpdate(
+        { _id: orderId },
+        { $pull: { products: { _id: productId } } },
+        { new: true }
+      );
+    },
   },
 };
 
