@@ -21,10 +21,9 @@ const typeDefs = `#graphql
 #Order is the list of orders in the database - like book type in c21 (books saved by the user)
   type Order {
     _id: ID!
-    products: [ Product ] #like authors from c21
     orderDate: String!
     orderShipped: Bollean!  #true is shipped, false is pending
-    
+    products: [ Product ] #like authors from c21
 }
 
   # type Auth
@@ -41,9 +40,20 @@ const typeDefs = `#graphql
   }
 
   type Mutation {
-    createUser(email: String!, password: String!): Auth
+    createUser(username: String, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addOrder(orderDate: String!, orderShipped: Boolean!): Order
+    removeOrder(orderId: ID!): Order
+    addProduct(  #addComment is like adding productd to an order
+      productdId: ID!
+      productName: String!
+      productDescription: String!
+      price: Float!
+      ): Order
+    removeProduct(productId: ID!): Order
+
   }
+
 `;
 
 module.exports = typeDefs;

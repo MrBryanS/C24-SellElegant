@@ -1,4 +1,4 @@
-const { User, Product } = require("../models");
+const { User, Product, Order } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
@@ -15,10 +15,18 @@ const resolvers = {
     product: async () => {
       return Product.findOne({ _id });
     },
+    orders: async () => {
+      return Order.find({});
+    },
+    order: async () => {
+      return Order.findOne({ _id });
+    }
+
   },
+ 
   Mutation: {
-    createUser: async (parents, { email, password }) => {
-      const user = await User.create({ email, password });
+    createUser: async (parents, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
     },
@@ -34,6 +42,17 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    addOrder: async (parent, { orderDate, orderShipped }) => {
+      const order = await Order.create({ orderDate, orderShipped });
+      await User.findOneAndUpdate(
+        { _id: userId },
+        { $addToSet: { orders: order._id } }
+      );
+      return order;
+    }
+
+    
+      
   },
 };
 
