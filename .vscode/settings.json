@@ -1,0 +1,6 @@
+{
+    "mongodbLanguageServer.trace.server": {
+
+    },
+    "mdb.showMongoDBConnectionExplorer": true
+}

@@ -4,7 +4,7 @@ const typeDefs = `#graphql
   type User {
     _id: ID!
     username: String
-    email: String
+    email: String!
     password: String!
     orderCount: Int #like bookCount from c21
     savedOrders: [ Order ]  #like savedBooks from c21   
