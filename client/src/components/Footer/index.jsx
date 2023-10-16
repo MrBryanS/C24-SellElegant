@@ -41,9 +41,9 @@ export default function Example() {
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex justify-end">
-                    {navigation.map((item) => (
+                    {/* {navigation.map((item) => (
                       <></>
-                    ))}
+                    ))} */}
                   </div>
                 </div>
               </div>
