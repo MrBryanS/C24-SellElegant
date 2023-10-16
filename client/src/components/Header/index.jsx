@@ -38,7 +38,7 @@ export default function Example() {
                   <img
                     className="h-8 w-auto"
                     src={envelope}
-                    alt="Your Company"
+                    alt="sellegant"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">

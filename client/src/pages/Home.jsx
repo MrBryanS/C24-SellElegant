@@ -9,5 +9,7 @@ const Home = () => {
     <div>Product 3</div>
     {/*useQuery => map*/}
 
+    
+
   </main>  
 }
