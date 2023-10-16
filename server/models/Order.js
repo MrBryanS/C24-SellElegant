@@ -16,6 +16,9 @@ const orderSchema = new Schema({
         type: Boolean,
         default: false,
     },
+    shipDate: {
+        type: Date,
+    },
 });
 
 

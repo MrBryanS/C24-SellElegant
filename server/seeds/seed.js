@@ -2,14 +2,18 @@ const db = require("../config/connection");
 const { User } = require("../models");
 const cleanDB = require("./cleanDB");
 
-
 const userData = require("./userData.json");
 
 
 db.once("open", async () => {
   await cleanDB("User", "user");
 
-  const users = await User.insertMany(userData);
+  // insertmany will not encrpt the password
+  // const users = await User.insertMany(userData);
+  // so:
+  for (const user of userData) {
+    await User.create(user);
+  }
   console.log("users seeded");
 
   process.exit(0);

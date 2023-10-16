@@ -1,20 +1,15 @@
 const db = require('./connection');
 const { User, Product, Order } = require('../models');
 const cleanDB = require('./cleanDB');
+const userData = require('../seeds/userData.json');
+let orderIndex = 0
 
 db.once('open', async () => {
-  await cleanDB('Order', 'orders');
-  await cleanDB('Product', 'products');
-  await cleanDB('User', 'users');
+  await cleanDB("Order", "orders");
+  await cleanDB("Product", "products");
+  await cleanDB("User", "users");
 
-  const orders = await Order.insertMany([
-    { products: [] },
-    { orderDate: '2023/10/05' },
-    { orderShipped: true }
-  ]);
-
-  console.log('categories seeded');
-
+  
   const products = await Product.insertMany([
     {
       productCode: "JS001",
@@ -40,29 +35,74 @@ db.once('open', async () => {
     },
   ]);
 
-  console.log('products seeded');
-
-  await User.insertMany({
-    userName: 'Joe Smith',
-    email: 'joesmith@email.com',
-    password: 'password12345',
-    orders: [orders[0]._id]
+const orders = await Order.insertMany([
+  {
+    products: [products[0]._id, products[1]._id, products[2]._id],
+    orderShipped: false,
   },
   {
-    userName: 'Jane Smith',
-    email: 'jane@email.com',
-    password: 'password12345',
-    orders: [orders[1]._id]
-  });
+    products: [products[0]._id, products[1]._id, products[2]._id],
+    orderShipped: true,
+  },
+  {
+    products: [products[0]._id, products[1]._id, products[2]._id],
+    orderShipped: false,
+  },
+  {
+    products: [products[0]._id, products[1]._id, products[2]._id],
+    orderShipped: true,
+  },
+  {
+    products: [products[0]._id, products[1]._id, products[2]._id],
+    orderShipped: false,
+  },
+  {
+    products: [products[0]._id, products[1]._id, products[2]._id],
+    orderShipped: true,
+  },
+  {
+    products: [products[0]._id, products[1]._id, products[2]._id],
+    orderShipped: false,
+  },
+  {
+    products: [products[0]._id, products[1]._id, products[2]._id],
+    orderShipped: true,
+  },
+  {
+    products: [products[0]._id, products[1]._id, products[2]._id],
+    orderShipped: false,
+  },
+  {
+    products: [products[0]._id, products[1]._id, products[2]._id],
+    orderShipped: true,
+  },
+]);
 
-//   await User.create({
-//     firstName: 'Elijah',
-//     lastName: 'Holt',
-//     email: 'eholt@testmail.com',
-//     password: 'password12345'
-//   });
+console.log("categories seeded");
 
-  console.log('users seeded');
+
+  console.log("products seeded");
+  // insertmany will not encrpt the password
+  // const users = await User.insertMany(userData);
+  // so:
+  for (const user of userData) {
+    await User.create({ ...user, savedOrders: [orders[orderIndex]._id, orders[orderIndex+1]._id] });
+    orderIndex += 2  // increment by 2 to get the next 2 orders
+    
+  }
+
+
+
+
+
+  //   await User.create({
+  //     firstName: 'Elijah',
+  //     lastName: 'Holt',
+  //     email: 'eholt@testmail.com',
+  //     password: 'password12345'
+  //   });
+
+  console.log("users seeded");
 
   process.exit();
 });
