@@ -4,10 +4,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import envelope from "../../assets/envelope.svg"
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Account', href: '#', current: false },
-  { name: 'Login', href: '#', current: false },
-  { name: 'Sing-up', href: '#', current: false },
+  { name: 'Home', href: '/Home', current: true },
+  { name: 'Account', href: '/Account', current: false },
+  { name: 'Login', href: '/Login', current: false },
+  { name: 'Sign-up', href: '/Signup', current: false },
 ]
 
 function classNames(...classes) {
