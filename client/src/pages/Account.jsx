@@ -1,13 +1,13 @@
-
+import envelope from "../assets/card.svg"
 const products = [
     {
       id: 1,
-      name: 'Basic Tee',
+      name: 'Basic envelope',
       href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: '$35',
-      color: 'Black',
+      imageSrc: envelope,
+      imageAlt: "basic Sellelegant envelope.",
+      price: '$2.50',
+      
     },
     // More products...
   ]
