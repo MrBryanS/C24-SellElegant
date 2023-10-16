@@ -1,7 +1,12 @@
 //import { useState } from 'react'
 //import { Outlet } from 'react-router-dom';
+import Header from './components/Header';
+import Account from './pages/Account'
+import Footer from './components/Footer'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import './App.css'
+import './index.css'
+
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -13,16 +18,11 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
-        <div className="shrink-0">
-         
-        </div>
-        <div>
-          <div className="text-xl font-medium text-black">ChitChat</div>
-          <p className="text-slate-500">You have a new message!</p>
-        </div>
-      </div>
-      
+       <Header />
+     
+      <Account />
+    
+    <Footer />
     </ApolloProvider>
   );
 }
