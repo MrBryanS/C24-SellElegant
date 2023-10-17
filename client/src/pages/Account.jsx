@@ -1,10 +1,10 @@
-import envelope from "../assets/card.svg"
+import card from "../assets/card.svg"
 const products = [
     {
       id: 1,
       name: 'Basic envelope',
       href: '#',
-      imageSrc: envelope,
+      imageSrc: card,
       imageAlt: "basic Sellelegant envelope.",
       price: '$2.50',
       

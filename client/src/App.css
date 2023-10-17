@@ -21,6 +21,15 @@ body, html {
     justify-content: flex-end;
   }
 
+  .center-accordion {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    margin-left: 500px;
+  }
+  
+
 
 
   
