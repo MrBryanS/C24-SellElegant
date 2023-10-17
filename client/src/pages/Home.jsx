@@ -9,16 +9,17 @@ export default function Home() {
       <div className=" bg-slate-300 h-[835px] w-1/2 justify-center center-accordion">
         <div className="collapse collapse-arrow bg-slate-500">
           <input type="radio" name="my-accordion-2" checked="checked" />
-          <div className="collapse-title text-xl font-medium">Envelope</div>
+          <div className="collapse-title text-xl font-medium">Job Set-Up</div>
           <div className="collapse-content">
-            <img src={card} alt="A card product" />
+           
             <p>hello</p>
+            
           </div>
         </div>
         <div className="collapse collapse-arrow bg-slate-400">
           <input type="radio" name="my-accordion-2" />
           <div className="collapse-title text-xl font-medium">
-            Lazor Printer
+            Laser Personalization - 1 Side
           </div>
           <div className="collapse-content">
             <p>hello</p>
@@ -26,8 +27,9 @@ export default function Home() {
         </div>
         <div className="collapse collapse-arrow bg-slate-500">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title text-xl font-medium">Stock Paper</div>
+          <div className="collapse-title text-xl font-medium">Mail Handling</div>
           <div className="collapse-content">
+          <img src={card} alt="A card product"/>
             <p>hello</p>
           </div>
         </div>
