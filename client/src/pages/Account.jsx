@@ -1,4 +1,6 @@
 import card from "../assets/card.svg"
+import {QUERY_ME} from "../utils/queries"
+import {useQuery} from "@apollo/client"
 const products = [
     {
       id: 1,
@@ -13,6 +15,9 @@ const products = [
   ]
   
   export default function Account() {
+    const {loading, data}=useQuery(QUERY_ME)
+    const user=data?.me || {}
+    console.log(user)
     return (
         <div className="bg-slate-300 custom-height">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
