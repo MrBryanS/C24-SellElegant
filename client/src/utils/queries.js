@@ -10,13 +10,36 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_PRODUCT = gql`
-  query product {
-    product {
+export const QUERY_PRODUCTS = gql`
+  query products {
+  products {
+    _id
+    productName
+    productDescription
+    price
+  }
+}
+`;
+export const QUERY_ME = gql`
+query me {
+  me {
+    _id
+    username
+    email
+    password
+    orderCount
+    savedOrders {
       _id
-      product_name
-      price
-      stock
+      orderDate
+      orderShipped
+      products {
+        _id
+        price
+        productDescription
+        productName
+      }
     }
   }
-`;
+}
+
+`

@@ -21,6 +21,8 @@ const resolvers = {
     order: async () => {
       return Order.findOne({ _id });
     },
+    me: async (parent,args,context) => {
+      return User.findOne({_id: context.user._id}).populate({path:"savedOrders",populate:{path:"products"}})    }
   },
 
   Mutation: {
