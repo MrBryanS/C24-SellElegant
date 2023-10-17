@@ -32,8 +32,8 @@ Link to personal portfolio:
 
 ## 🚀 Group participants (Full stack developers in development):
 
-Joel Getzke: Portfolio Link - (???) --- [Github Repo](https://github.com/Glansburg)
+Joel Getzke: Portfolio Link - (https://dainty-bavarois-123fc5.netlify.app/) --- [Github Repo](https://github.com/Glansburg)
 
-Brady Lange: Portfolio Link - (???) --- [Github Repo](https://github.com/BradyLange1)
+Brady Lange: Portfolio Link - (https://comfy-kulfi-9e4811.netlify.app/) --- [Github Repo](https://github.com/BradyLange1)
 
 Bryan Stauning: [Portfolio Link](https://mrbryans.github.io/C20-React-WorkSamplePortfolio/) --- [Github Repo](https://github.com/MrBryanS)
