@@ -1,38 +1,38 @@
 const db = require("../config/connection");
-const { Product, User } = require("../models");
+const { User } = require("../models");
+const cleanDB = require("./cleanDB");
 
-//which seed do we want?
-//const { //unsure? //} = require('../models');
+const userData = require("./userData.json");
+
 
 db.once("open", async () => {
-  await User.deleteMany({});
-  await Product.deleteMany({});
+  await cleanDB("User", "user");
 
-  await User.collection.insertOne({
-    email: "test@gmail.com",
-    password: "123",
-  });
-  await Product.collection.insertOne({
-    product_name: "Love Letter",
-    price: 5,
-    stock: 100,
-  });
-  await Product.collection.insertOne({
-    product_name: "Business Letter",
-    price: 8,
-    stock: 200,
-  });
+  // insertmany will not encrpt the password
+  // const users = await User.insertMany(userData);
+  // so:
+  for (const user of userData) {
+    await User.create(user);
+  }
+  console.log("users seeded");
 
   process.exit(0);
 });
 
-//THIS IS boiler plate, we need to change it when we find out what seeds we use
 
-//db.once('open', async () => {
-// await cleanDB('Tech', 'teches');
+  // await User.collection.insertOne({
+  //   email: "test@gmail.com",
+  //   password: "123",
+  // });
+  // await Product.collection.insertOne({
+  //   product_name: "Love Letter",
+  //   price: 5,
+  //   stock: 100,
+  // });
+  // await Product.collection.insertOne({
+  //   product_name: "Business Letter",
+  //   price: 8,
+  //   stock: 200,
+  // });
 
-//await Tech.insertMany(techData);
 
-//console.log('Technologies seeded!');
-//  process.exit(0);
-//});
