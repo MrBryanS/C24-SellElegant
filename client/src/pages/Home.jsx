@@ -12,13 +12,13 @@ export default function Home() {
   console.log(products);
   return (
     <div className="bg-slate-300">
-      <div className=" bg-slate-300 h-[835px] w-1/2 justify-center center-accordion">
+      <div className=" bg-slate-300 flex min-h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         {products.map((product) => (
           <div
             key={product._id}
             className="collapse collapse-arrow bg-slate-500 my-1"
           >
-            <input type="radio" name="my-accordion-2" />
+            <input className="lg:h-32" type="radio" name="my-accordion-2" />
             <div className="collapse-title text-xl font-medium">
               {product.productName}
             </div>
