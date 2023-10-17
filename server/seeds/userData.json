@@ -1,0 +1,29 @@
+[
+{
+    "userName": "User01",
+    "email": "User01@email.com",
+    "password": "passworduser01"
+      
+},
+{
+    "userName": "User02",
+    "email": "User02@email.com",
+     "password": "passworduser02" 
+},
+{
+    "userName": "User03",
+    "email": "User03@email.com",
+    "password": "passworduser03"
+},
+{
+    "userName": "User04",
+    "email": "User04@email.com",
+    "password": "passworduser04"
+},
+{
+    "userName": "User05",
+    "email": "User05@email.com",
+    "password": "passworduser05"
+}
+
+]

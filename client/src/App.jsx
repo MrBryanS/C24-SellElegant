@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Account from "./pages/Account";
 import Footer from "./components/Footer";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import "./App.css";
+import "./app.css";
 import "./index.css";
 
 const client = new ApolloClient({
