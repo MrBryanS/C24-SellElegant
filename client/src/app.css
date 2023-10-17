@@ -19,13 +19,12 @@ body, html {
     justify-content: flex-end;
   }
 
-  .center-accordion {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    margin-left: 500px;
+@media (max-width:768px) {
+  .product-element {
+    width: 150px;
+    height:150px;
   }
+}
   
 
 
