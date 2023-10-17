@@ -19,14 +19,14 @@ const products = [
     const user=data?.me || {}
     console.log(user)
     return (
-        <div className="bg-slate-300 custom-height">
+        <div className="bg-slate-300 min-h-screen">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <h2 className="text-2xl bg-slate-400 w-1/6 p-4 text-center border-bold border-blue-400 border-4 shadow-x1 font-bold tracking-tight text-gray-900">Orders:</h2>
+          <h2 className="text-4xl bg-slate-400 w-1/8 p-4 text-center border-boldest border-blue-400 border-4 shadow-x1 font-bold tracking-tight text-gray-900">Orders:</h2>
   
-          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
-              <div key={product.id} className="group relative">
-                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+              <div key={product.id} className=" product-element group relative">
+                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-blue-400 lg:aspect-none group-hover:opacity-75 product-element lg:w-80 lg:h-80">
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
