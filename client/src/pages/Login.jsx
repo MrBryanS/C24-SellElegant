@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
+import img from "../assets/sellelegant.jpg"
 
 import Auth from "../utils/auth";
 
@@ -30,7 +31,7 @@ export default function Login() {
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
           className="mx-auto h-10 w-auto"
-          src="client\src\assets\SellElegantScreenshotLogin.Png"
+          src={img}
           alt="Sell Elegant"
           
         />

@@ -38,7 +38,7 @@ export default function Example() {
                   />
                 </div>
                 <span className="bg-white p-1 m-2 underline font-bold">
-                  Sellegant
+                Sellelegant
                 </span>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex justify-end">

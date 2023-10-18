@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { useMutation } from "@apollo/client";
 import { CREATE_USER } from "../utils/mutations";
-
 import Auth from "../utils/auth";
+import img from "../assets/sellelegant.jpg"
 
 export default function Signup() {
   const [username, setUsername] = useState("");
@@ -31,7 +30,7 @@ export default function Signup() {
       <div className="sm:mx-auto sm:w-full sm:max-w-sm ">
         <img
           className="mx-auto h-10 w-auto"
-          src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+          src={img}
           alt="Your Company"
         />
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
