@@ -28,7 +28,7 @@ Link to personal portfolio:
 
 [Github Link: https://github.com/MrBryanS/C24-SellElegant](https://github.com/MrBryanS/C24-SellElegant)
 
-[Deployed Heroku](https://sellelegant-895b9677e190.herokuapp.com/)
+[Deployed Heroku: https://sellelegant-895b9677e190.herokuapp.com/](https://sellelegant-895b9677e190.herokuapp.com/)
 
 ## 🚀 Group participants (Full stack developers in development):
 
@@ -37,3 +37,6 @@ Joel Getzke: Portfolio Link - (https://dainty-bavarois-123fc5.netlify.app/) --- 
 Brady Lange: Portfolio Link - (https://comfy-kulfi-9e4811.netlify.app/) --- [Github Repo](https://github.com/BradyLange1)
 
 Bryan Stauning: [Portfolio Link](https://mrbryans.github.io/C20-React-WorkSamplePortfolio/) --- [Github Repo](https://github.com/MrBryanS)
+
+
+![Alt text](client/src/assets/SellElegantScreenshotLogin.Png)
