@@ -63,10 +63,10 @@ const resolvers = {
     },
 
     addProduct: async (parent, { orderId, productId }) => {
-      return Order.findOneAndUpdate(
+      await Order.findOneAndUpdate(
         { _id: orderId },
-        { $addToSet: { products: { productId } } },
-        { new: true, runValidators: true }
+        { $addToSet: { products: { _id: productId } } },
+        { new: true }
       );
     },
 

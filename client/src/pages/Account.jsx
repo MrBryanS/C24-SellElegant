@@ -1,23 +1,26 @@
 import card from "../assets/card.svg";
 import { QUERY_ME } from "../utils/queries";
-import { useQuery } from "@apollo/client";
-
-const products = [
-  {
-    id: 1,
-    name: "Basic envelope",
-    href: "#",
-    imageSrc: card,
-    imageAlt: "basic Sellelegant envelope.",
-    price: "$2.50",
-  },
-  // More products...
-];
+import { useMutation, useQuery } from "@apollo/client";
+import { REMOVE_ORDER } from "../utils/mutations";
 
 var n = 1;
 
 export default function Account() {
   const { loading, data } = useQuery(QUERY_ME);
+  const [deleteOrder] = useMutation(REMOVE_ORDER)
+  const handleDeleteOrder = async () => {
+    let order = document.querySelector(".deleteButton")
+    let orderId = order.id
+    console.log(orderId)
+    console.log(order)
+    try {
+      await deleteOrder({
+        variables: {orderId}
+      })
+    } catch (e) {
+      console.error(e)
+    }
+  }
   return (
     <div className="bg-slate-300 min-h-screen">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -30,7 +33,11 @@ export default function Account() {
             data.me.savedOrders.map((order) => {
               return (
                 <ul key={order._id} className="text-gray-900">
-                  <h1 className="text-2xl">Order {n++}</h1>
+                  <div className="flex justify-between">
+                    <h1 className="text-2xl">Order {n++}</h1>
+                    <button id={order._id} onClick={() => handleDeleteOrder()} className="deleteButton btn btn-xs">Delete</button>
+                  </div>
+
                   {order.products.map((product) => {
                     return <li key={product._id}>{product.productName}</li>;
                   })}
