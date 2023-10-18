@@ -21,8 +21,12 @@ const resolvers = {
     order: async () => {
       return Order.findOne({ _id });
     },
-    me: async (parent,args,context) => {
-      return User.findOne({_id: context.user._id}).populate({path:"savedOrders",populate:{path:"products"}})    }
+    me: async (parent, args, context) => {
+      return User.findOne({ _id: context.user._id }).populate({
+        path: "savedOrders",
+        populate: { path: "products", model: "Product" },
+      });
+    },
   },
 
   Mutation: {
@@ -34,12 +38,12 @@ const resolvers = {
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
       if (!user) {
-        console.log('no user')
+        console.log("no user");
         throw AuthenticationError;
       }
       const correctPassword = await user.isCorrectPassword(password);
       if (!correctPassword) {
-        console.log('incorrect pass')
+        console.log("incorrect pass");
         throw AuthenticationError;
       }
       const token = signToken(user);
