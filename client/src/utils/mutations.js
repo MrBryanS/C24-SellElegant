@@ -24,8 +24,24 @@ export const LOGIN_USER = gql`
   }
 `;
 
+export const ADD_PRODUCT = gql`
+  mutation addProduct($productdId: ID!, $orderdId: ID!) {
+    addProduct(productdId: $productdId, orderdId: $orderdId) {
+      _id
+      orderDate
+      orderShipped
+      products {
+        _id
+        price
+        productDescription
+        productName
+      }
+    }
+  }
+`;
+
 export const ADD_ORDER = gql`
-  mutation Mutation(
+  mutation createOrder(
     $email: String!
     $orderDate: String!
     $orderShipped: Boolean!
@@ -41,6 +57,14 @@ export const ADD_ORDER = gql`
       products {
         _id
       }
+    }
+  }
+`;
+
+export const REMOVE_ORDER = gql`
+  mutation removeOrder($orderId: ID!) {
+    removeOrder(orderId: $orderId) {
+      _id
     }
   }
 `;
