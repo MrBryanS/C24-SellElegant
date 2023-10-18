@@ -22,5 +22,13 @@ export const LOGIN_USER = gql`
         username
       }
     }
+  } 
+`;
+
+export const Add_ORDER = gql`
+mutation addOrder($email: String!, $orderDate: String!, $orderShipped: Date!) {
+  addOrder(email: $email, orderDate: $orderDate, orderShipped: $orderShipped) {
+    email
   }
-`
+}
+`;

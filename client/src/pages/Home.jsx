@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
-import { QUERY_PRODUCTS } from "../utils/queries";
+import { QUERY_PRODUCTS, QUERY_ME } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import React from "react";
 import card from "../assets/card.svg";
 import lazerPrinter from "../assets/lazerPrinter.svg";
 import job from "../assets/job.svg";
 
+var n = 1;
 export default function Home() {
+  const { userloading, userdata } = useQuery(QUERY_ME);
+  console.log(userdata)
   const { loading, data } = useQuery(QUERY_PRODUCTS);
   const products = data?.products || [];
   console.log(products);
@@ -26,6 +29,29 @@ export default function Home() {
               <img src={job} alt="A card product" />
               <div className="flex justify-between">
                 <p>{product.productDescription}</p>
+                <button
+                  onClick={() =>
+                    document.getElementById("my_modal_2").showModal()
+                  }
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+             
+                >
+                  
+                  Add
+                </button>
+               
+                <dialog id="my_modal_2" className="modal">
+                  <div className="modal-box">
+                    {userdata &&
+                      userdata.me.savedOrders.map((order) => {
+                        return <button key={order._id}>Order {n++}</button>;
+                      })}
+                  </div>
+                  <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                  </form>
+                </dialog>
+
                 <p>${product.price}</p>
               </div>
             </div>
