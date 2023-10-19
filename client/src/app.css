@@ -25,6 +25,10 @@ body, html {
     height:150px;
   }
 }
+
+.not-logged-in {
+  font-size: 80px;
+}
   
 
 

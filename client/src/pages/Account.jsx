@@ -17,6 +17,7 @@ export default function Account() {
       await deleteOrder({
         variables: {orderId}
       })
+      location.reload();
     } catch (e) {
       console.error(e)
     }

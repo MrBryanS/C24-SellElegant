@@ -37,7 +37,7 @@ export default function Home() {
   console.log(products);
   console.log(userQuery);
   if (userQuery.data == undefined) {
-    return <div>Please Log In</div>;
+    return <div className="min-h-screen bg-slate-300 text-center  not-logged-in">Please Log In</div>;
   } else {
     return (
       <div className="bg-slate-300">
